@@ -1,0 +1,50 @@
+.performance-page {
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.performance-charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Ensure charts have enough height to be readable */
+.chart-card-body.tall-chart {
+  min-height: 350px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1440px) {
+  .performance-page {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .chart-card-body.tall-chart {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .performance-charts-container {
+    gap: 1.5rem;
+  }
+  .chart-card-body.tall-chart {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 430px) {
+  .performance-page {
+    padding: 1rem;
+  }
+  .chart-card-body.tall-chart {
+    min-height: 200px;
+  }
+}

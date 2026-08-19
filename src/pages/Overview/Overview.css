@@ -1,0 +1,274 @@
+.overview-page {
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.overview-top-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+}
+
+.hero-card {
+  background: linear-gradient(135deg, var(--color-solar-blue), #2563eb);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.hero-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.hero-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #a7f3d0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4);
+}
+
+.hero-main-value {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.hero-value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero-unit {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.hero-sub-stats {
+  display: flex;
+  gap: 1.25rem;
+  z-index: 2;
+}
+
+.hero-stat {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.hero-stat span {
+  opacity: 0.7;
+}
+
+.css-solar-panel {
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 180px;
+  height: 140px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: skewX(-20deg) rotate(-10deg);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3px;
+  padding: 3px;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.css-solar-panel > div {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.overview-mid-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.card-base {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-base h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.energy-source-card .source-display {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-warning-amber);
+}
+
+.energy-source-card .source-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.energy-source-card .source-desc {
+  color: var(--gray-500);
+  font-size: 0.85rem;
+  margin: 0 0 auto 0;
+}
+
+.energy-source-card .relay-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.battery-status-card {
+  gap: 1rem;
+}
+
+.battery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.battery-header h4 {
+  margin: 0;
+}
+
+.battery-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.battery-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1;
+}
+
+.battery-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.energy-consumption-card {
+  gap: 1.25rem;
+}
+
+.consumption-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+  .overview-page {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .overview-top-row {
+    grid-template-columns: 1fr;
+  }
+  .overview-mid-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sensor-grid {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .sensor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 430px) {
+  .overview-page {
+    padding: 1rem;
+  }
+  .overview-mid-row {
+    grid-template-columns: 1fr;
+  }
+  .sensor-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-card {
+    padding: 1.5rem;
+  }
+  .hero-value {
+    font-size: 2.5rem;
+  }
+  .css-solar-panel {
+    display: none; /* Hide decorative element on small screens to save space */
+  }
+}

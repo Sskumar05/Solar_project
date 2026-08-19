@@ -1,0 +1,24 @@
+{
+  "rules": {
+    "solarSystem": {
+      ".read": true,
+      ".write": false,
+      "sensors": {
+        ".read": true,
+        ".write": false
+      },
+      "energy": {
+        ".read": true,
+        ".write": false
+      },
+      "system": {
+        ".read": true,
+        ".write": false
+      },
+      "history": {
+        ".read": true,
+        ".write": false
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.status-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-badge-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Success */
+.badge-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+.badge-success .status-badge-dot {
+  background-color: var(--color-energy-green);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+.badge-success .status-badge-text {
+  color: var(--color-energy-green);
+}
+
+/* Warning */
+.badge-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+.badge-warning .status-badge-dot {
+  background-color: var(--color-warning-amber);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+.badge-warning .status-badge-text {
+  color: var(--color-warning-amber);
+}
+
+/* Error */
+.badge-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+.badge-error .status-badge-dot {
+  background-color: var(--color-error-red);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+.badge-error .status-badge-text {
+  color: var(--color-error-red);
+}
+
+/* Neutral */
+.badge-neutral {
+  background-color: var(--gray-100);
+  border-color: var(--border-color);
+}
+.badge-neutral .status-badge-dot {
+  background-color: var(--gray-400);
+}
+.badge-neutral .status-badge-text {
+  color: var(--gray-600);
+}

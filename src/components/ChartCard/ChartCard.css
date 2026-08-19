@@ -1,0 +1,73 @@
+.chart-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.chart-card-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.chart-card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.chart-card-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+.chart-range-toggles {
+  display: flex;
+  background-color: var(--gray-50);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.25rem;
+}
+
+.range-toggle {
+  background: none;
+  border: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.range-toggle:hover {
+  color: var(--gray-900);
+}
+
+.range-toggle.active {
+  background-color: var(--surface-color);
+  color: var(--gray-900);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.chart-card-body {
+  width: 100%;
+  min-height: 250px;
+  position: relative;
+}

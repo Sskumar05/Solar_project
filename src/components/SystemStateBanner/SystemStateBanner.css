@@ -1,0 +1,50 @@
+.system-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-banner {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  border: 1px solid var(--border-color);
+}
+
+.error-banner {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-error-red);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.offline-banner {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--color-warning-amber);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.nodata-banner {
+  background-color: var(--gray-50);
+  color: var(--gray-500);
+  border: 1px dashed var(--border-color);
+}
+
+.stale-banner {
+  background-color: rgba(245, 158, 11, 0.08);
+  color: #92650a;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
