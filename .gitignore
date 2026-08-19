@@ -27,3 +27,5 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+
+Solarist_Dashboard_Stepwise_Prompts.md
