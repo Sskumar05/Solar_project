@@ -1,70 +1,74 @@
 .status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 12px;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
   border: 1px solid transparent;
+  transition: all 0.2s ease;
 }
 
 .status-badge-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .status-badge-text {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-/* Success */
+/* Success: Soft Mint Background with Emerald Dot & Dark Green Text */
 .badge-success {
-  background-color: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.2);
+  background-color: var(--color-mint-light);
+  border-color: var(--color-mint-border);
 }
 .badge-success .status-badge-dot {
   background-color: var(--color-energy-green);
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.25);
 }
 .badge-success .status-badge-text {
-  color: var(--color-energy-green);
+  color: var(--color-mint-text);
 }
 
-/* Warning */
+/* Warning: Soft Amber */
 .badge-warning {
-  background-color: rgba(245, 158, 11, 0.1);
-  border-color: rgba(245, 158, 11, 0.2);
+  background-color: var(--color-warning-light);
+  border-color: #fde68a;
 }
 .badge-warning .status-badge-dot {
   background-color: var(--color-warning-amber);
-  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25);
 }
 .badge-warning .status-badge-text {
-  color: var(--color-warning-amber);
+  color: #92400e;
 }
 
-/* Error */
+/* Error: Soft Red */
 .badge-error {
-  background-color: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.2);
+  background-color: var(--color-error-light);
+  border-color: #fecaca;
 }
 .badge-error .status-badge-dot {
   background-color: var(--color-error-red);
-  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.25);
 }
 .badge-error .status-badge-text {
-  color: var(--color-error-red);
+  color: #991b1b;
 }
 
-/* Neutral */
+/* Neutral: Clean Cool Gray */
 .badge-neutral {
   background-color: var(--gray-100);
   border-color: var(--border-color);
 }
 .badge-neutral .status-badge-dot {
   background-color: var(--gray-400);
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.2);
 }
 .badge-neutral .status-badge-text {
-  color: var(--gray-600);
+  color: var(--gray-700);
 }

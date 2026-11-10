@@ -95,15 +95,15 @@ const Performance = () => {
       {
         label: 'Solar Power (kWh)',
         data: currentEnergy.solar,
-        borderColor: 'rgb(16, 185, 129)',
-        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        borderColor: '#0d8253',
+        backgroundColor: 'rgba(13, 130, 83, 0.12)',
         tension: 0.4,
         fill: true,
       },
       {
         label: 'Load Consumption (kWh)',
         data: currentEnergy.load,
-        borderColor: 'rgb(59, 130, 246)',
+        borderColor: '#64748b',
         backgroundColor: 'transparent',
         borderDash: [5, 5],
         tension: 0.4,
@@ -111,7 +111,7 @@ const Performance = () => {
       {
         label: 'Battery Usage (kWh)',
         data: currentEnergy.battery,
-        borderColor: 'rgb(245, 158, 11)',
+        borderColor: '#10b981',
         backgroundColor: 'transparent',
         tension: 0.4,
       }
@@ -124,7 +124,7 @@ const Performance = () => {
     interaction: { mode: 'index', intersect: false },
     plugins: { legend: { position: 'top' } },
     scales: {
-      y: { beginAtZero: false, grid: { color: 'rgba(0,0,0,0.05)' } },
+      y: { beginAtZero: false, grid: { color: 'rgba(241, 245, 249, 0.95)' } },
       x: { grid: { display: false } }
     }
   };
@@ -145,12 +145,12 @@ const Performance = () => {
       {
         label: 'Humidity (%)',
         data: envHumidityData,
-        borderColor: 'rgb(59, 130, 246)',
+        borderColor: '#0d8253',
         backgroundColor: 'transparent',
         yAxisID: 'y1',
         tension: 0.4,
         pointRadius: (ctx) => ctx.dataIndex === envLabels.length - 1 && liveHumidity != null ? 6 : 3,
-        pointBackgroundColor: (ctx) => ctx.dataIndex === envLabels.length - 1 && liveHumidity != null ? 'rgb(59,130,246)' : 'transparent',
+        pointBackgroundColor: (ctx) => ctx.dataIndex === envLabels.length - 1 && liveHumidity != null ? '#0d8253' : 'transparent',
       }
     ]
   };
@@ -166,7 +166,7 @@ const Performance = () => {
         type: 'linear',
         display: true,
         position: 'left',
-        grid: { color: 'rgba(0,0,0,0.05)' },
+        grid: { color: 'rgba(241, 245, 249, 0.95)' },
         title: { display: true, text: 'Temperature (°C)' }
       },
       y1: {

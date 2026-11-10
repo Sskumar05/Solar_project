@@ -65,16 +65,16 @@ const Overview = () => {
       {
         label: 'Solar Generation (kWh)',
         data: [0, 0, 4.5, 12, 8.5, 1, 0],
-        borderColor: 'rgb(16, 185, 129)',
-        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        borderColor: '#0d8253',
+        backgroundColor: 'rgba(13, 130, 83, 0.12)',
         fill: true,
         tension: 0.4
       },
       {
         label: 'Energy Consumption (kWh)',
         data: [2, 1.5, 3, 5, 4, 6, 3],
-        borderColor: 'rgb(59, 130, 246)',
-        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+        borderColor: '#64748b',
+        backgroundColor: 'rgba(100, 116, 139, 0.08)',
         fill: true,
         tension: 0.4
       }
@@ -85,11 +85,37 @@ const Overview = () => {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { position: 'top' },
-      tooltip: { mode: 'index', intersect: false }
+      legend: {
+        position: 'top',
+        labels: {
+          color: '#334155',
+          font: { family: 'Plus Jakarta Sans, Inter, sans-serif', size: 12, weight: 500 },
+          boxWidth: 10,
+          boxHeight: 10,
+          usePointStyle: true,
+          pointStyle: 'circle'
+        }
+      },
+      tooltip: {
+        mode: 'index',
+        intersect: false,
+        backgroundColor: '#0F172A',
+        titleFont: { family: 'Plus Jakarta Sans, Inter, sans-serif' },
+        bodyFont: { family: 'Plus Jakarta Sans, Inter, sans-serif' },
+        padding: 10,
+        cornerRadius: 8
+      }
     },
     scales: {
-      y: { beginAtZero: true }
+      x: {
+        grid: { color: 'rgba(241, 245, 249, 0.95)' },
+        ticks: { color: '#64748B', font: { family: 'Plus Jakarta Sans, Inter, sans-serif', size: 11 } }
+      },
+      y: {
+        beginAtZero: true,
+        grid: { color: 'rgba(241, 245, 249, 0.95)' },
+        ticks: { color: '#64748B', font: { family: 'Plus Jakarta Sans, Inter, sans-serif', size: 11 } }
+      }
     }
   };
 
@@ -167,7 +193,7 @@ const Overview = () => {
           <div className="battery-main">
             <span className="battery-value">{data?.energy?.batteryLevel ?? '--'}%</span>
           </div>
-          <ProgressBar percentage={data?.energy?.batteryLevel ?? 0} color="var(--color-energy-green)" />
+          <ProgressBar percentage={data?.energy?.batteryLevel ?? 0} color="var(--color-primary-green)" />
           <div className="battery-footer">
             <span>{data?.sensors?.voltage ?? '--'}V</span>
             <span>Solar Charge</span>
@@ -183,8 +209,8 @@ const Overview = () => {
           </span>
         </h4>
         <div className="consumption-bars">
-          <ProgressBar label="Solar Contribution" percentage={solarContrib} color="var(--color-solar-blue)" />
-          <ProgressBar label="Battery Contribution" percentage={batteryContrib} color="var(--color-energy-green)" />
+          <ProgressBar label="Solar Contribution" percentage={solarContrib} color="var(--color-primary-green)" />
+          <ProgressBar label="Battery Contribution" percentage={batteryContrib} color="var(--color-accent-mint)" />
           <ProgressBar label="Grid Contribution" percentage={gridContrib} color="var(--gray-400)" />
         </div>
       </div>

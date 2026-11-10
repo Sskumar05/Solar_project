@@ -1,30 +1,37 @@
 .overview-page {
-  padding: 2rem;
+  padding: 2.25rem;
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .overview-top-row {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .hero-card {
-  background: linear-gradient(135deg, var(--color-solar-blue), #2563eb);
+  background: linear-gradient(135deg, var(--color-primary-green) 0%, #065f46 100%);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+  padding: 2rem 2.25rem;
+  color: #ffffff;
+  box-shadow: var(--shadow-hero);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  min-height: 250px;
+  min-height: 270px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -6px rgba(13, 130, 83, 0.42);
 }
 
 .hero-header {
@@ -36,21 +43,23 @@
 
 .hero-header h3 {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 500;
-  opacity: 0.9;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  opacity: 0.95;
 }
 
 .hero-badge-wrap {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 4px 10px;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
   font-size: 0.75rem;
   font-weight: 600;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
 }
 
 .hero-dot {
@@ -58,132 +67,150 @@
   height: 6px;
   background-color: #a7f3d0;
   border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 0 2px rgba(167, 243, 208, 0.4);
 }
 
 .hero-main-value {
-  margin-top: 2rem;
+  margin-top: 1.75rem;
   margin-bottom: 1.5rem;
   z-index: 2;
   display: flex;
   align-items: baseline;
-  gap: 4px;
+  gap: 6px;
 }
 
 .hero-value {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 3.75rem;
+  font-weight: 800;
   line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .hero-unit {
-  font-size: 1.2rem;
-  opacity: 0.8;
-  font-weight: 500;
+  font-size: 1.35rem;
+  opacity: 0.85;
+  font-weight: 600;
 }
 
 .hero-sub-stats {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   z-index: 2;
 }
 
 .hero-stat {
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .hero-stat span {
-  opacity: 0.7;
+  opacity: 0.75;
+  font-weight: 400;
 }
 
 .css-solar-panel {
   position: absolute;
   right: -30px;
   bottom: -30px;
-  width: 180px;
-  height: 140px;
+  width: 190px;
+  height: 150px;
   background-color: rgba(255, 255, 255, 0.05);
   transform: skewX(-20deg) rotate(-10deg);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.12);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 3px;
-  padding: 3px;
-  border-radius: 6px;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 8px;
   z-index: 1;
 }
 
 .css-solar-panel > div {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
 }
 
 .overview-mid-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .sensor-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .card-base {
   background-color: var(--surface-color);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-soft);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-base:hover {
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
 }
 
 .card-base h4 {
-  margin: 0 0 1rem 0;
-  font-size: 1.05rem;
-  font-weight: 600;
+  margin: 0 0 1.25rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--gray-900);
+  letter-spacing: -0.02em;
 }
 
 .energy-source-card .source-display {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  color: var(--color-warning-amber);
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+  color: var(--color-primary-green);
+}
+
+.source-icon {
+  color: var(--color-primary-green);
 }
 
 .energy-source-card .source-name {
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: 1.85rem;
+  font-weight: 800;
   color: var(--gray-900);
+  letter-spacing: -0.03em;
 }
 
 .energy-source-card .source-desc {
   color: var(--gray-500);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   margin: 0 0 auto 0;
+  line-height: 1.45;
 }
 
 .energy-source-card .relay-status {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.85rem;
+  margin-top: 1.75rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--gray-600);
 }
 
 .battery-status-card {
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .battery-header {
@@ -203,10 +230,11 @@
 }
 
 .battery-value {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 3.25rem;
+  font-weight: 800;
   color: var(--gray-900);
   line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .battery-footer {
@@ -218,19 +246,19 @@
 }
 
 .energy-consumption-card {
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .consumption-bars {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1440px) {
   .overview-page {
-    padding: 1.5rem;
+    padding: 1.75rem;
   }
 }
 
@@ -252,7 +280,7 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 480px) {
   .overview-page {
     padding: 1rem;
   }
@@ -266,9 +294,9 @@
     padding: 1.5rem;
   }
   .hero-value {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
   }
   .css-solar-panel {
-    display: none; /* Hide decorative element on small screens to save space */
+    display: none;
   }
 }

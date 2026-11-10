@@ -3,11 +3,13 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 0.75rem;
+  padding: 0.85rem 1.25rem;
   margin-bottom: 1.5rem;
   border-radius: var(--radius-md);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
 .spin {
@@ -20,21 +22,21 @@
 }
 
 .loading-banner {
-  background-color: var(--gray-100);
+  background-color: var(--gray-50);
   color: var(--gray-700);
   border: 1px solid var(--border-color);
 }
 
 .error-banner {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: var(--color-error-light);
   color: var(--color-error-red);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(220, 38, 38, 0.2);
 }
 
 .offline-banner {
-  background-color: rgba(245, 158, 11, 0.1);
-  color: var(--color-warning-amber);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background-color: var(--color-warning-light);
+  color: #92400e;
+  border: 1px solid rgba(217, 119, 6, 0.2);
 }
 
 .nodata-banner {
@@ -44,7 +46,7 @@
 }
 
 .stale-banner {
-  background-color: rgba(245, 158, 11, 0.08);
-  color: #92650a;
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  background-color: var(--color-warning-light);
+  color: #92400e;
+  border: 1px solid rgba(217, 119, 6, 0.25);
 }

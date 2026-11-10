@@ -1,20 +1,46 @@
 import React from 'react';
-import { Zap, Thermometer, Droplets, Activity, AlertTriangle, WifiOff } from 'lucide-react';
+import {
+  Zap,
+  Thermometer,
+  Droplets,
+  Activity,
+  AlertTriangle,
+  CheckCircle2,
+  Info
+} from 'lucide-react';
 import MetricCard from '../../components/MetricCard/MetricCard';
 import StatusBadge from '../../components/StatusBadge/StatusBadge';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import { useFirebaseData } from '../../hooks/useFirebaseData';
+import { useNotifications } from '../../context/NotificationContext';
 import SystemStateBanner from '../../components/SystemStateBanner/SystemStateBanner';
 import './Monitoring.css';
 
-const mockAlerts = [
-  { id: 1, type: 'warning', icon: Thermometer, message: 'High temperature detected in inverter compartment', time: '2 mins ago' },
-  { id: 2, type: 'error', icon: AlertTriangle, message: 'Battery voltage below critical threshold (11.8V)', time: '1 hour ago' },
-  { id: 3, type: 'neutral', icon: WifiOff, message: 'Device temporarily offline', time: 'Yesterday, 14:30' }
-];
+// Readable relative time formatter
+const formatTimeAgo = (dateInput) => {
+  if (!dateInput) return '';
+  const date = new Date(dateInput);
+  if (isNaN(date.getTime())) return String(dateInput);
+
+  const now = new Date();
+  const diffSec = Math.floor((now - date) / 1000);
+
+  if (diffSec < 60) return 'Just now';
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `${diffMin}m ago`;
+  const diffHour = Math.floor(diffMin / 60);
+  if (diffHour < 24) return `${diffHour}h ago`;
+  const diffDays = Math.floor(diffHour / 24);
+  if (diffDays < 7) return `${diffDays}d ago`;
+  return date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+};
 
 const Monitoring = () => {
   const { data, loading, error } = useFirebaseData();
+  const { notifications } = useNotifications();
+
+  // Shared real notification alerts (show recent active alerts/warnings first)
+  const activeAlerts = (notifications || []).slice(0, 5);
 
   return (
     <div className="monitoring-page">
@@ -39,7 +65,7 @@ const Monitoring = () => {
               <StatusBadge text={data?.system?.status ?? '--'} variant={data?.system?.status?.toLowerCase() === 'online' ? 'success' : 'neutral'} />
             </div>
             <div className="status-item">
-              <span>Firebase Database</span>
+              <span>Database Status</span>
               <StatusBadge text={error ? 'Disconnected' : (loading ? '--' : 'Connected')} variant={error ? 'error' : 'success'} />
             </div>
             <div className="status-item">
@@ -57,24 +83,47 @@ const Monitoring = () => {
           </div>
         </div>
 
-        {/* Alerts List */}
+        {/* Live Alerts List (Consuming shared notification source) */}
         <div className="alerts-panel card-base">
           <h4>Recent Alerts</h4>
           <div className="alerts-list">
-            {mockAlerts.map(alert => {
-              const Icon = alert.icon;
-              return (
-                <div key={alert.id} className={`alert-item alert-${alert.type}`}>
-                  <div className="alert-icon-wrap">
-                    <Icon size={18} />
-                  </div>
-                  <div className="alert-content">
-                    <span className="alert-message">{alert.message}</span>
-                    <span className="alert-time">{alert.time}</span>
-                  </div>
+            {activeAlerts.length === 0 ? (
+              <div className="alert-empty-state">
+                <CheckCircle2 size={24} className="alert-empty-icon" />
+                <div className="alert-empty-text">
+                  <h5>System Operating Normally</h5>
+                  <p>No active alerts, warnings, or hardware faults detected.</p>
                 </div>
-              );
-            })}
+              </div>
+            ) : (
+              activeAlerts.map(alert => {
+                const isError = alert.severity === 'error' || alert.type === 'device_offline';
+                const isWarning = alert.severity === 'warning' || alert.type === 'battery_alert' || alert.type === 'temperature_alert';
+                const isSuccess = alert.severity === 'success' || alert.type === 'device_reconnected';
+
+                const alertClass = isError ? 'alert-error' : isWarning ? 'alert-warning' : isSuccess ? 'alert-success' : 'alert-info';
+
+                return (
+                  <div key={alert.notificationId || alert.id} className={`alert-item ${alertClass}`}>
+                    <div className="alert-icon-wrap">
+                      {isError ? (
+                        <AlertTriangle size={18} />
+                      ) : isWarning ? (
+                        <AlertTriangle size={18} />
+                      ) : isSuccess ? (
+                        <CheckCircle2 size={18} />
+                      ) : (
+                        <Info size={18} />
+                      )}
+                    </div>
+                    <div className="alert-content">
+                      <span className="alert-message">{alert.title}: {alert.message}</span>
+                      <span className="alert-time">{formatTimeAgo(alert.createdAt)}</span>
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
       </div>

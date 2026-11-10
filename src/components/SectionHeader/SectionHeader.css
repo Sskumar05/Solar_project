@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -15,19 +15,22 @@
 
 .section-title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--gray-900);
   line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
 .section-subtitle {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--gray-500);
+  font-weight: 400;
 }
 
 .section-action {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
 }

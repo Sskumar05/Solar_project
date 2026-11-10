@@ -10,7 +10,7 @@ const SystemStateBanner = ({ loading, error, data }) => {
     return (
       <div className="system-banner loading-banner">
         <Loader className="spin" size={18} />
-        <span>Connecting to Firebase...</span>
+        <span>Connecting to live service...</span>
       </div>
     );
   }
@@ -19,7 +19,7 @@ const SystemStateBanner = ({ loading, error, data }) => {
     return (
       <div className="system-banner error-banner">
         <AlertTriangle size={18} />
-        <span>Unable to connect to Firebase. Check your network.</span>
+        <span>Unable to connect to service. Check your network or server status.</span>
       </div>
     );
   }

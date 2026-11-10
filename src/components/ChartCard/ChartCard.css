@@ -2,11 +2,12 @@
   background-color: var(--surface-color);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-soft);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  transition: box-shadow 0.2s ease;
 }
 
 .chart-card-header {
@@ -25,9 +26,10 @@
 
 .chart-card-title {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--gray-900);
+  letter-spacing: -0.02em;
 }
 
 .chart-card-subtitle {
@@ -38,32 +40,41 @@
 
 .chart-range-toggles {
   display: flex;
-  background-color: var(--gray-50);
+  align-items: center;
+  background-color: var(--gray-100);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: var(--radius-pill);
   padding: 0.25rem;
+  gap: 0.25rem;
 }
 
 .range-toggle {
   background: none;
   border: none;
-  padding: 0.35rem 0.75rem;
-  border-radius: 16px;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--gray-600);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .range-toggle:hover {
   color: var(--gray-900);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .range-toggle.active {
-  background-color: var(--surface-color);
-  color: var(--gray-900);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  background-color: var(--color-primary-green);
+  color: #ffffff;
+  box-shadow: var(--shadow-button);
+  font-weight: 600;
+}
+
+.range-toggle.active:hover {
+  background-color: var(--color-primary-hover);
+  color: #ffffff;
 }
 
 .chart-card-body {
